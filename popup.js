@@ -5,6 +5,7 @@ setInterval(function(){
     theme: 'tooltipster-light.min',
     trigger: 'hover',
     trackOrigin: true,
+    maxWidth: 400,
     content: 'Loading...',
     functionBefore: function(instance, helper) {
         var origin = $(helper.origin);
@@ -20,11 +21,11 @@ setInterval(function(){
                   var ogDescription = $(res).filter("meta[property='og:description']").attr("content");
 
                   if (twittercard !== null && twittercard !== undefined) {
-                    var $el = $("<div style='display: flex'><div><img src='" + twittercard + "' height='200' width='300'></div><div><h4>" + title + "</h4><div>" + twitterDescription + "</div></div></div>");
+                    var $el = $("<div style='display: flex'><img src='" + twittercard + "' height='150' width='200'><div style='width: 300px; padding-left:5px'><h4 style='color: white'>" + title + "</h4><div>" + twitterDescription + "</div></div></div>");
                     //var $el = $("<p><img src='"+ twittercard +"' height='200' width='300'/> " + title + "<br>" + twitterDescription + "</p>");
                     return instance.content($el);
                   } else if (ogcard !== null && ogcard !== undefined) {
-                    var $el = $("<div style='display: flex'><div><img src='" + ogcard + "' height='200' width='300'></div><div><h4>" + title + "</h4><div>" + ogDescription + "</div></div></div>");
+                    var $el = $("<div style='display: flex'><img src='" + ogcard + "' height='150' width='200'><div style='width: 300px; padding-left:5px'><h4 style='color: white'>" + title + "</h4><div>" + ogDescription + "</div></div></div>");
                     //var $el = $("<p><img src='"+ ogcard +"' height='200' width='300'/>"  + title + "<br>" + ogDescription +" </p>");
                     return instance.content($el);
                   } else {
