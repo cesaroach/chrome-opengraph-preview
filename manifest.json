@@ -1,18 +1,35 @@
 {
   "manifest_version": 2,
-
   "name": "Opengraph Preview",
   "description": "With this extension you can preview opengraph cards on the fly",
   "version": "1.0",
-    "permissions": ["http://*/*", "https://*/*"],
-    "browser_action": {
-      "default_icon": "images/icon.png"
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://buffer.com/*"],
-        "css": ["/plugins/tooltipster-master/dist/css/tooltipster.bundle.min.css", "popup.css"],
-        "js": ["jquery-1.10.0.min.js", "/plugins/tooltipster-master/dist/js/tooltipster.bundle.min.js", "popup.js"]
-      }
-    ]
+  "permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "browser_action": {
+    "default_icon": "images/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://buffer.com/*"
+      ],
+      "css": [
+        "/plugins/tooltipster-master/dist/css/tooltipster.bundle.min.css",
+        "popup.css"
+      ],
+      "js": [
+        "jquery-1.10.0.min.js",
+        "/plugins/tooltipster-master/dist/js/tooltipster.bundle.min.js",
+        "popup.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  }
 }
