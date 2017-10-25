@@ -29,7 +29,7 @@ setInterval(function(){
                     //var $el = $("<p><img src='"+ ogcard +"' height='200' width='300'/>"  + title + "<br>" + ogDescription +" </p>");
                     return instance.content($el);
                   } else {
-                    var $el = $("<p> There is no image <br> " + title + "<br>" + ogDescription + " </p>");
+                    var $el = $("<p> There is no image <br> <h4 style='color: white'>" + title + "</h4> <br>" + ogDescription + " </p>");
                     instance.content($el);
                   }
                 }, 
