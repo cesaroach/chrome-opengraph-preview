@@ -11,9 +11,16 @@ setInterval(function () {
       var origin = $(helper.origin);
       if (origin.data('loaded') !== true) {
         var URL = origin.html();
-        $.ajax({
-          url: URL,
-          success: function (res) {
+
+        chrome.runtime.sendMessage({
+          method: 'GET',
+          action: 'xhttp',
+          url: URL
+        }, function (responseText, error) {
+          if (error) {
+            instance.content("Error getting card");
+          } else {
+            var res = responseText;
             var twittercard = $(res).filter("meta[name='twitter:image']").attr("content");
             var ogcard = $(res).filter("meta[property='og:image']").attr("content");
             var title = $(res).filter("title").text();
@@ -32,9 +39,6 @@ setInterval(function () {
               var $el = $("<p> There is no image <br> <h4 style='color: white'>" + title + "</h4> <br>" + ogDescription + " </p>");
               instance.content($el);
             }
-          },
-          error: function () {
-            instance.content("error to get card");
           }
         });
       }
