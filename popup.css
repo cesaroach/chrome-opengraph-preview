@@ -1,0 +1,5 @@
+.tooltipster-content h4 {
+    overflow: visible;
+    white-space: normal;
+    text-overflow: initial;
+}

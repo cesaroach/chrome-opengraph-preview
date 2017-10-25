@@ -11,7 +11,7 @@
     "content_scripts": [
       {
         "matches": ["https://buffer.com/*"],
-        "css": ["/plugins/tooltipster-master/dist/css/tooltipster.bundle.min.css"],
+        "css": ["/plugins/tooltipster-master/dist/css/tooltipster.bundle.min.css", "popup.css"],
         "js": ["jquery-1.10.0.min.js", "/plugins/tooltipster-master/dist/js/tooltipster.bundle.min.js", "popup.js"]
       }
     ]
